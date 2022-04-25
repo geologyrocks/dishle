@@ -1,3 +1,4 @@
+import { env } from 'process'
 import { Cell } from '../grid/Cell'
 import { BaseModal } from './BaseModal'
 
@@ -10,62 +11,83 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess the word in 6 tries. After each guess, the color of the tiles will
-        change to show how close your guess was to the word.
+        Guess the top 5 ingredients used to make a meal in 6 tries. After each
+        guess, the color of the tiles will change to show how close your guess
+        was to the meal's recipe.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
         <Cell
           isRevealing={true}
           isCompleted={true}
-          value="W"
+          value="🍝"
           status="correct"
         />
-        <Cell value="E" />
-        <Cell value="A" />
-        <Cell value="R" />
-        <Cell value="Y" />
+        <Cell value="🥚" />
+        <Cell value="🥓" />
+        <Cell value="🧄" />
+        <Cell value="🧀" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter W is in the word and in the correct spot.
+        Pasta 🍝 is in spaghetti carbonara and is the main ingredient.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="P" />
-        <Cell value="I" />
+        <Cell value="🥩" />
+        <Cell value="🧀" />
         <Cell
           isRevealing={true}
           isCompleted={true}
-          value="L"
+          value="🍫"
           status="present"
         />
-        <Cell value="O" />
-        <Cell value="T" />
+        <Cell value="🥚" />
+        <Cell value="🧈" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter L is in the word but in the wrong spot.
+        Chocolate 🍫 is in brownies but is in a different order.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="V" />
-        <Cell value="A" />
-        <Cell value="G" />
-        <Cell isRevealing={true} isCompleted={true} value="U" status="absent" />
-        <Cell value="E" />
+        <Cell value="🥥" />
+        <Cell value="🧈" />
+        <Cell value="🍒" />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="🥦"
+          status="absent"
+        />
+        <Cell value="🍯" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter U is not in the word in any spot.
+        Broccoli 🥦 is not in a coconut-cherry slice at all.
       </p>
 
       <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
-        This is an open source version of the word guessing game we all know and
-        love -{' '}
+        {process.env.REACT_APP_GAME_NAME} is an{' '}
         <a
-          href="https://github.com/cwackerfuss/react-wordle"
+          href="https://github.com/geologyrocks/dishle"
           className="underline font-bold"
         >
-          check out the code here
+          open-source version
         </a>{' '}
+        of that other well-known word guessing game, built upon{' '}
+        <a
+          href="https://github.com/cwakerfuss/reactle"
+          className="underline font-bold"
+        >
+          {' '}
+          Reactle
+        </a>{' '}
+        and inspired by{' '}
+        <a href="https://cogit.fun/cloudle" className="underline font-bold">
+          Cloudle
+        </a>
+        .
+      </p>
+      <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
+        Made by Ed Hughes-Phillips.
       </p>
     </BaseModal>
   )
