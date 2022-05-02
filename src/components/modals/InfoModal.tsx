@@ -1,4 +1,3 @@
-import { env } from 'process'
 import { Cell } from '../grid/Cell'
 import { BaseModal } from './BaseModal'
 
