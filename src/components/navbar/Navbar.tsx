@@ -24,6 +24,9 @@ export const Navbar = ({
           onClick={() => setIsInfoModalOpen(true)}
         />
         <p className="text-xl ml-2.5 font-bold dark:text-white">{GAME_TITLE}</p>
+        {/* <div className="flex flex-row justify-end">
+          <img src="logo192.png" alt="Dishle icon" width="25" height="25" />
+        </div> */}
         <div className="right-icons">
           <ChartBarIcon
             className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"
